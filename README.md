@@ -17,8 +17,8 @@ To see your organization ID, log in to the VKE console, click on your name/org
 	the full organization ID. To get your refresh token, click on your name/org at the
  	top of the page, click My Account, and then click API Tokens. 
 
-	Example: 
-         vke account login -t fd2c1d78-9f00-4e30-8268-4ab8162080d \
+    Example: 
+      vke account login -t fd2c1d78-9f00-4e30-8268-4ab8162080d \
                      -r 5fde5099-f329-4f1a-a580-fe359d919a7
 
 #### Flags 
