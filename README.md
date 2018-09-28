@@ -1,4 +1,4 @@
-# ```vke v0.9 (Build: 84a5513)
+# vke v0.9 (Build: 84a5513)
 
 Command line interface for VMware Kubernetes Engine
 ## List of supported commands
