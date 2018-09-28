@@ -1,4 +1,4 @@
-# vke v0.9 (Build: 84a5513)
+# vke v0.9 (Build: 0ef237d)
 
 Command line interface for VMware Kubernetes Engine
 ## List of supported commands
@@ -6,9 +6,11 @@ Command line interface for VMware Kubernetes Engine
 ### 1 ```account```
 Commands to log in and show account info
 
+
 #### 1.1 ```account login```
 Log in to your organization
-To see your organization ID, log in to the VKE console, click on your name/org
+
+Description: To see your organization ID, log in to the VKE console, click on your name/org
 	at the top of the page, and then click on the abbreviated organization ID to see
 	the full organization ID. To get your refresh token, click on your name/org at the
  	top of the page, click My Account, and then click API Tokens. 
@@ -28,15 +30,19 @@ Flags:
 #### 1.2 ```account show```
 Show current logged in user info
 
+
 ### 2 ```cluster```
 Commands to manage clusters
+
 
 #### 2.1 ```cluster auth```
 Sub-commands to manage kubectl authentication
 
+
 ##### 2.1.1 ```cluster auth delete```
 Remove the configuration from kubectl config file for your cluster
-Remove the entries from your default kubectl configuration file for your cluster 
+
+Description: Remove the entries from your default kubectl configuration file for your cluster 
 
     Example: 
       vke cluster auth delete TestCluster
@@ -48,7 +54,8 @@ Flags:
 ```
 ##### 2.1.2 ```cluster auth setup```
 Configure kubectl to allow communication with your cluster
-Modify your default kubectl configuration file to allow access to your cluster 
+
+Description: Modify your default kubectl configuration file to allow access to your cluster 
 
     Example: 
       vke cluster auth setup TestCluster
@@ -64,7 +71,8 @@ Flags:
 ```
 #### 2.2 ```cluster create```
 Create a new cluster
-Create a new Kubernetes cluster. 
+
+Description: Create a new Kubernetes cluster. 
 
     Example: 
      vke cluster create -n TestCluster -v 1.7.5 --region us-west-2 
@@ -104,7 +112,8 @@ DEDICATED: Clusters will have their own networks
 ```
 #### 2.3 ```cluster delete```
 Delete a cluster
-Delete a cluster. WARNING: All running applications will be forcibly stopped. 
+
+Description: Delete a cluster. WARNING: All running applications will be forcibly stopped. 
 
     Example: 
       vke cluster delete TestCluster
@@ -116,7 +125,8 @@ Flags:
 ```
 #### 2.4 ```cluster get-kubectl-auth```
 Generate the kubectl command for authentication
-Generate the kubectl (Kubernetes command line client) configuration. There are two options. 
+
+Description: Generate the kubectl (Kubernetes command line client) configuration. There are two options. 
    1. Run vke cluster get-kubectl-auth TestCluster with --configfile option 
    to create a new Kubernetes config. You can move the created file to ~/.kube/config (Mac OS X and Linux) to replace 
    your default config. 
@@ -138,9 +148,11 @@ Flags:
 #### 2.5 ```cluster iam```
 Sub-commands to manage access policies
 
+
 ##### 2.5.1 ```cluster iam add```
 Bind an identity to a role to grant permissions
-Bind an identity to a role on a cluster to grant permissions. Role can be 'smartcluster.admin', 
+
+Description: Bind an identity to a role on a cluster to grant permissions. Role can be 'smartcluster.admin', 
    'smartcluster.edit' or 'smartcluster.view'
 
     Example: 
@@ -158,6 +170,7 @@ Flags:
 ##### 2.5.2 ```cluster iam export```
 Export the direct access policy to a file
 
+Description: 
     Example: 
        vke cluster iam export TestCluster -o file.txt 
 
@@ -170,6 +183,7 @@ Flags:
 ##### 2.5.3 ```cluster iam import```
 Import an access policy from a file
 
+Description: 
     Example: 
        vke cluster iam import TestCluster -i file.txt 
 
@@ -181,7 +195,8 @@ Flags:
 ```
 ##### 2.5.4 ```cluster iam remove```
 Remove an identity from a role binding
-Remove an identity from a role binding on a cluster. Role can be 'smartcluster.admin',
+
+Description: Remove an identity from a role binding on a cluster. Role can be 'smartcluster.admin',
    'smartcluster.edit', 'smartcluster.view' or use '*' to remove all existing roles.
 
     Example: 
@@ -199,6 +214,7 @@ Flags:
 ##### 2.5.5 ```cluster iam show```
 Show the direct and inherited access policies for the cluster
 
+Description: 
     Example: 
        vke cluster iam show TestCluster 
 
@@ -209,7 +225,8 @@ Flags:
 ```
 #### 2.6 ```cluster list```
 List clusters
-List all clusters in the current tenant. 
+
+Description: List all clusters in the current tenant. 
 
     Example: 
       vke cluster list
@@ -221,7 +238,8 @@ Flags:
 ```
 #### 2.7 ```cluster maintain```
 Start cluster maintenance
-Performs maintenance on the cluster, including re-creation of failed master nodes. 
+
+Description: Performs maintenance on the cluster, including re-creation of failed master nodes. 
    Please note that this should normally not be needed, except in unusual situations, 
    because maintenance is automatically performed. 
 
@@ -235,7 +253,8 @@ Flags:
 ```
 #### 2.8 ```cluster merge-kubectl-auth```
 Configure kubectl for authentication
-Modify your default kubectl configuration file to allow access to your cluster 
+
+Description: Modify your default kubectl configuration file to allow access to your cluster 
 
     Example: 
       vke cluster merge-kubectl-auth TestCluster
@@ -252,9 +271,11 @@ Flags:
 #### 2.9 ```cluster namespace```
 Commands to manage namespaces
 
+
 ##### 2.9.1 ```cluster namespace create```
 Create new namespace
 
+Description: 
     Example:
        vke namespace create cluster1 namespace1
 
@@ -265,7 +286,8 @@ Flags:
 ```
 ##### 2.9.2 ```cluster namespace delete```
 Delete a namespace
-Delete a namespace with specified name
+
+Description: Delete a namespace with specified name
 
     Example:
        vke namespace delete cluster1 namespace1
@@ -278,9 +300,11 @@ Flags:
 ##### 2.9.3 ```cluster namespace iam```
 Sub-commands to manage access policies
 
+
 ###### 2.9.3.1 ```cluster namespace iam add```
 Bind an identity to a role to grant permissions
-Bind an identity to a role on a namespace to grant permissions. Role can be 'namespace.admin', 
+
+Description: Bind an identity to a role on a namespace to grant permissions. Role can be 'namespace.admin', 
    'namespace.edit' or 'namespace.view'
 
     Example: 
@@ -299,6 +323,7 @@ Flags:
 ###### 2.9.3.2 ```cluster namespace iam export```
 Export the direct access policy to a file
 
+Description: 
     Example: 
        vke namespace iam export cluster1 namespace1 -o file.txt 
 
@@ -311,6 +336,7 @@ Flags:
 ###### 2.9.3.3 ```cluster namespace iam import```
 Import an access policy from a file
 
+Description: 
     Example: 
        vke namespace iam import cluster1 namespace1 -i file.txt 
 
@@ -322,7 +348,8 @@ Flags:
 ```
 ###### 2.9.3.4 ```cluster namespace iam remove```
 Remove an identity from a role binding
-Remove an identity from a role binding on a namespace. Role can be 'namespace.admin', 
+
+Description: Remove an identity from a role binding on a namespace. Role can be 'namespace.admin', 
    'namespace.edit', 'namespace.view' or use '*' to remove all existing roles
 
     Example: 
@@ -341,6 +368,7 @@ Flags:
 ###### 2.9.3.5 ```cluster namespace iam show```
 Show the direct and inherited access policies for the namespace
 
+Description: 
     Example: 
        vke namespace iam show cluster1 namespace1 
 
@@ -352,6 +380,7 @@ Flags:
 ##### 2.9.4 ```cluster namespace list```
 List all namespaces
 
+
 Flags: 
 ```
 --folder value, -f value	specify the current working folder
@@ -359,7 +388,8 @@ Flags:
 ```
 ##### 2.9.5 ```cluster namespace show```
 Show information about a namespace
-Shows details related to a namespace
+
+Description: Shows details related to a namespace
 
     Example:
        vke namespace show cluster1 namespace1
@@ -372,9 +402,11 @@ Flags:
 #### 2.10 ```cluster peering```
 Commands to manage peerings
 
+
 ##### 2.10.1 ```cluster peering create```
 Create new peering
-Create new peering. 
+
+Description: Create new peering. 
 
     Example:
        vke cluster peering create -c <cluster-name> -n <peering-name> \
@@ -394,7 +426,8 @@ Flags:
 ```
 ##### 2.10.2 ```cluster peering delete```
 Delete a peering
-Delete a peering. 
+
+Description: Delete a peering. 
 
     Example:
        vke cluster peering delete <cluster-name> <peering-id>
@@ -406,7 +439,8 @@ Flags:
 ```
 ##### 2.10.3 ```cluster peering list```
 List all peerings for a cluster
-List all peerings of a cluster. 
+
+Description: List all peerings of a cluster. 
 
     Example:
        vke cluster peering list <cluster-name>
@@ -418,7 +452,8 @@ Flags:
 ```
 ##### 2.10.4 ```cluster peering rename```
 Rename a peering
-Update name of a peering. 
+
+Description: Update name of a peering. 
 
     Example:
        vke cluster peering rename <cluster-name> <peering-id> <new-peering-name>
@@ -430,7 +465,8 @@ Flags:
 ```
 ##### 2.10.5 ```cluster peering show```
 Show information about a peering
-Show information of a peering. 
+
+Description: Show information of a peering. 
 
     Example:
        vke cluster peering show <cluster-name> <peering-id>
@@ -443,6 +479,7 @@ Flags:
 #### 2.11 ```cluster rename```
 Change the display name of a cluster
 
+Description: 
     Example: 
         vke cluster rename TestCluster 'New Display Name'
 
@@ -453,7 +490,8 @@ Flags:
 ```
 #### 2.12 ```cluster show```
 Show information about a cluster 
-List the cluster's name, state, type, workerCount 
+
+Description: List the cluster's name, state, type, workerCount 
    and all the extended properties. 
 
     Example: 
@@ -467,7 +505,8 @@ Flags:
 ```
 #### 2.13 ```cluster show-health```
 Show health information about a cluster 
-List the cluster's overall health, message and health details
+
+Description: List the cluster's overall health, message and health details
 
     Example: 
       vke cluster show-health TestCluster
@@ -480,12 +519,15 @@ Flags:
 #### 2.14 ```cluster templates```
 Commands to list template
 
+
 ##### 2.14.1 ```cluster templates list```
 List Kubernetes Smart Cluster templates
+
 
 #### 2.15 ```cluster upgrade```
 Upgrade the Kubernetes version your cluster is running
 
+Description: 
     Example: 
       vke cluster upgrade TestCluster -v 1.7.5
 
@@ -499,9 +541,11 @@ Flags:
 #### 2.16 ```cluster versions```
 Commands to list Kubernetes versions
 
+
 ##### 2.16.1 ```cluster versions list```
 List available Kubernetes versions
-Lists available Kubernetes versions for a specific region
+
+Description: Lists available Kubernetes versions for a specific region
 
     Example:
        vke cluster versions list --region us-west-2 
@@ -513,12 +557,15 @@ Flags:
 ### 3 ```documentation```
 prints the CLI documentation
 
+
 ### 4 ```folder```
 Commands to manage folders
 
+
 #### 4.1 ```folder create```
 Create new folder
-Create new folder
+
+Description: Create new folder
 
     Example:
        vke folder create folder1 --display-name 'New Folder'
@@ -529,7 +576,8 @@ Flags:
 ```
 #### 4.2 ```folder delete```
 Delete a folder
-Delete a folder with specified name
+
+Description: Delete a folder with specified name
 
     Example: 
        vke folder delete folder1 
@@ -537,7 +585,8 @@ Delete a folder with specified name
 
 #### 4.3 ```folder get```
 Show the current working folder
-Show current folder in use for vke
+
+Description: Show current folder in use for vke
 
     Example: 
        vke folder get 
@@ -546,9 +595,11 @@ Show current folder in use for vke
 #### 4.4 ```folder iam```
 Sub-commands to manage access policies
 
+
 ##### 4.4.1 ```folder iam add```
 Bind an identity to a role to grant permissions
-Bind an identity to a role on a folder to grant permissions. Role can be 
+
+Description: Bind an identity to a role on a folder to grant permissions. Role can be 
    'folder.edit' or 'folder.view'
 
     Example: 
@@ -564,6 +615,7 @@ Flags:
 ##### 4.4.2 ```folder iam export```
 Export the direct access policy to a file
 
+Description: 
     Example: 
       vke folder iam export folder1 -o output.txt 
 
@@ -574,6 +626,7 @@ Flags:
 ##### 4.4.3 ```folder iam import```
 Import an access policy from a file
 
+Description: 
     Example: 
       vke folder iam import folder1 -i input.txt
 
@@ -583,7 +636,8 @@ Flags:
 ```
 ##### 4.4.4 ```folder iam remove```
 Remove an identity from a role binding
-Remove an identity from a role binding on a folder. Role can be 
+
+Description: Remove an identity from a role binding on a folder. Role can be 
    'folder.edit', 'folder.view' or use '*' to remove all existing roles
 
     Example: 
@@ -599,13 +653,15 @@ Flags:
 ##### 4.4.5 ```folder iam show```
 Show the direct and inherited access policies for the folder
 
+Description: 
     Example: 
       vke folder iam show folder1 
 
 
 #### 4.5 ```folder list```
 List all folders
-Lists all folders in an organization
+
+Description: Lists all folders in an organization
 
     Example: 
        vke folder list 
@@ -613,7 +669,8 @@ Lists all folders in an organization
 
 #### 4.6 ```folder set```
 Set the current working folder
-Set the current folder used for all vke commands that needs folder
+
+Description: Set the current folder used for all vke commands that needs folder
 
     Example: 
        vke folder set folder1 
@@ -621,7 +678,8 @@ Set the current folder used for all vke commands that needs folder
 
 #### 4.7 ```folder show```
 Show information about a folder
-Shows details of a particular folder
+
+Description: Shows details of a particular folder
 
     Example: 
        vke folder show folder1 
@@ -629,7 +687,8 @@ Shows details of a particular folder
 
 #### 4.8 ```folder unset```
 Unset the current folder
-Removes the current folder set in the config file
+
+Description: Removes the current folder set in the config file
 
     Example: 
        vke folder unset 
@@ -638,15 +697,19 @@ Removes the current folder set in the config file
 ### 5 ```help```
 Shows a list of commands or help for one command
 
+
 ### 6 ```iam```
 Commands to manage Identity and Access Management (IAM)
+
 
 #### 6.1 ```iam group```
 Commands to manage groups
 
+
 ##### 6.1.1 ```iam group create```
 Create a new group
-Only organization administrators can create a new group.
+
+Description: Only organization administrators can create a new group.
 
     Example:
       vke group create group1 --description 'Purpose of this group' 
@@ -657,7 +720,8 @@ Flags:
 ```
 ##### 6.1.2 ```iam group delete```
 Delete a group
-Only organization administrators can delete a group.
+
+Description: Only organization administrators can delete a group.
 
     Example:
       vke group delete group1
@@ -665,12 +729,15 @@ Only organization administrators can delete a group.
 ##### 6.1.3 ```iam group list```
 List all groups
 
+
 ##### 6.1.4 ```iam group member```
 Commands to manage group members
 
+
 ###### 6.1.4.1 ```iam group member add```
 Add a member to a group
-Add a member to a group. Only organization administrators can create new group.
+
+Description: Add a member to a group. Only organization administrators can create new group.
 
     Example:
       vke group member add group1 --member-name Bob 
@@ -681,7 +748,8 @@ Flags:
 ```
 ###### 6.1.4.2 ```iam group member list```
 List all members in a group
-List all members in a group.
+
+Description: List all members in a group.
 
     Example:
       vke group member list group1 
@@ -689,7 +757,8 @@ List all members in a group.
 
 ###### 6.1.4.3 ```iam group member remove```
 Remove a member from a group
-Remove a member from a group. Only organization administrators can create new group.
+
+Description: Remove a member from a group. Only organization administrators can create new group.
 
     Example:
       vke group member remove group1 --member-name Bob 
@@ -701,25 +770,31 @@ Flags:
 ##### 6.1.5 ```iam group show```
 Show detailed group information
 
+Description: 
     Example:
       vke group show group1
 
 #### 6.2 ```iam role```
 Manage Identity and Access Management (IAM) roles
 
+
 ##### 6.2.1 ```iam role list```
 List role definitions
-List role definitions
+
+Description: List role definitions
 
 #### 6.3 ```iam user```
 Commands to manage users
 
+
 ##### 6.3.1 ```iam user list```
 List all users
+
 
 ##### 6.3.2 ```iam user show```
 Show detailed user info
 
+Description: 
     Example: 
       vke user show user-name@organization
 
@@ -727,21 +802,27 @@ Show detailed user info
 ### 7 ```info```
 Commands to get information
 
+
 #### 7.1 ```info region```
 Commands to manage regions
+
 
 ##### 7.1.1 ```info region list```
 List all regions
 
+
 ### 8 ```organization```
 Commands to manage organizations
+
 
 #### 8.1 ```organization iam```
 Sub-commands to manage access policies
 
+
 ##### 8.1.1 ```organization iam add```
 Bind an identity to a role to grant permissions
-Bind an identity to a role on a organization to grant permissions. Role can be 
+
+Description: Bind an identity to a role on a organization to grant permissions. Role can be 
    'organization.edit' or 'organization.view'
 
     Example: 
@@ -758,6 +839,7 @@ Flags:
 ##### 8.1.2 ```organization iam export```
 Export the direct access policy to a file
 
+Description: 
     Example: 
        vke org iam export fd2c1d78-9f00-4e30-8268-4ab8162080d -o output.txt 
 
@@ -768,6 +850,7 @@ Flags:
 ##### 8.1.3 ```organization iam import```
 Import an access policy from a file
 
+Description: 
     Example: 
        vke org iam import fd2c1d78-9f00-4e30-8268-4ab8162080d -i input.txt 
 
@@ -777,7 +860,8 @@ Flags:
 ```
 ##### 8.1.4 ```organization iam remove```
 Remove an identity from a role binding
-Remove an identity from a role binding on a organization. Role can be 
+
+Description: Remove an identity from a role binding on a organization. Role can be 
    'organization.edit' or 'organization.view'
 
     Example: 
@@ -794,12 +878,14 @@ Flags:
 ##### 8.1.5 ```organization iam show```
 Show the access policy for the organization
 
+Description: 
     Example: 
        vke org iam show fd2c1d78-9f00-4e30-8268-4ab8162080d 
 
 #### 8.2 ```organization show```
 Show detailed organization information
-Shows information related to an organization
+
+Description: Shows information related to an organization
 
     Example: 
        vke org show fd2c1d78-9f00-4e30-8268-4ab8162080d
@@ -808,9 +894,11 @@ Shows information related to an organization
 ### 9 ```project```
 Commands to manage global projects
 
+
 #### 9.1 ```project create```
 Create new project within a folder
-Create new project
+
+Description: Create new project
 
     Example:
        vke project create project1
@@ -822,7 +910,8 @@ Flags:
 ```
 #### 9.2 ```project delete```
 Delete project
-Delete an existing project
+
+Description: Delete an existing project
 
     Example:
        vke project delete project1
@@ -833,7 +922,8 @@ Flags:
 ```
 #### 9.3 ```project get```
 Show the current working project
-Show current project in use for vke
+
+Description: Show current project in use for vke
 
     Example:
        vke project get 
@@ -842,9 +932,11 @@ Show current project in use for vke
 #### 9.4 ```project iam```
 Sub-commands to manage access policies
 
+
 ##### 9.4.1 ```project iam add```
 Bind an identity to a role to grant permissions
-Bind an identity to a role on a project to grant permissions. Role can be 
+
+Description: Bind an identity to a role on a project to grant permissions. Role can be 
    'project.edit' or 'project.view'
 
     Example: 
@@ -860,6 +952,7 @@ Flags:
 ##### 9.4.2 ```project iam export```
 Export the direct access policy to a file
 
+Description: 
     Example: 
       vke project iam export project1 -o file.txt 
 
@@ -871,6 +964,7 @@ Flags:
 ##### 9.4.3 ```project iam import```
 Import an access policy from a file
 
+Description: 
     Example: 
       vke project iam import project1 -i file.txt 
 
@@ -881,7 +975,8 @@ Flags:
 ```
 ##### 9.4.4 ```project iam remove```
 Remove an identity from a role binding
-Remove an identity from a role binding on a project. Role can be 
+
+Description: Remove an identity from a role binding on a project. Role can be 
    'project.edit', 'project.view' or use '*' to remove all existing roles
 
     Example: 
@@ -897,6 +992,7 @@ Flags:
 ##### 9.4.5 ```project iam show```
 Show the direct and inherited access policies for the project
 
+Description: 
     Example: 
       vke project iam show project1 
 
@@ -906,7 +1002,8 @@ Flags:
 ```
 #### 9.5 ```project list```
 List all projects
-List all project within a folder
+
+Description: List all project within a folder
 
     Example:
        vke project list
@@ -917,7 +1014,8 @@ Flags:
 ```
 #### 9.6 ```project set```
 Set the current working project
-Set the current project used for all vke 
+
+Description: Set the current project used for all vke 
 
     Example:
        vke project set project1 
@@ -929,7 +1027,8 @@ Flags:
 ```
 #### 9.7 ```project show```
 Show information about project
-Show project info
+
+Description: Show project info
 
     Example:
        vke project show project1
@@ -940,7 +1039,8 @@ Flags:
 ```
 #### 9.8 ```project unset```
 Unset the current project
-Unset the current project set in the config file
+
+Description: Unset the current project set in the config file
 
     Example: 
        vke project unset 
